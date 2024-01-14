@@ -15,11 +15,9 @@ Use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware("admin")->group(function () {
+
+Route::middleware("auth")->group(function () {
 
     Route::get("/users",[UserController::class,"index"])->name("admin.users");
     Route::get("/user",[UserController::class,"create"])->name("admin.user.create");
@@ -36,7 +34,7 @@ Route::middleware("admin")->group(function () {
 
 });
 
-Route::middleware("user")->group(function() {
+Route::middleware("auth")->group(function() {
 
     Route::get("/orders",[OrderController::class,"index"])->name("admin.order");
     Route::get("/order",[OrderController::class,"create"])->name("admin.order.create");
@@ -45,12 +43,10 @@ Route::middleware("user")->group(function() {
     Route::get("/order/{id}",[OrderController::class,"show"])->name("admin.order.show");
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
+Route::middleware("auth")->group(function () {
+    Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+require __DIR__.'/auth.php';

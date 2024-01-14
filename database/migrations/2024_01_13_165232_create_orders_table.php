@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("code");
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('customer_id')->cascadeOnDelete();
-            $table->bigInteger('price');
+            $table->bigInteger('price')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
 

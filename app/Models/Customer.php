@@ -12,7 +12,8 @@ class Customer extends Model
         'name',
         'email',
         'phone',
-        'adresse'
+        'adresse',
+        'order_id'
     ];
-    
+
 }

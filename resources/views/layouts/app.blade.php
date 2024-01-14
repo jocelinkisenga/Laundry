@@ -15,6 +15,7 @@
          <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+           <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
         <!-- Styles -->
         @livewireStyles
@@ -42,6 +43,7 @@
                 <div class="container-fluid">
 
 
+                    @yield("content")
 
                 </div>
                 <!-- /.container-fluid -->
@@ -109,5 +111,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="js/demo/datatables-demo.js"></script>
     </body>
 </html>

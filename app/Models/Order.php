@@ -12,7 +12,6 @@ class Order extends Model
     protected $fillable = [
         'code',
         'user_id',
-        'customer_id',
         'price',
         'status'
     ];
@@ -20,5 +19,5 @@ class Order extends Model
     protected $casts = [
         'status' => 'boolean',
     ];
-    
+
 }

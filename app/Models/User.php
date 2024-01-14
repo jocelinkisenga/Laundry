@@ -32,7 +32,8 @@ class User extends Authenticatable
         'current_team_id',
         'permis_status',
         'phone',
-        'profile_photo_path'
+        'profile_photo_path',
+        'password'
      ];
 
 
