@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Facades\Date;
+
 use Livewire\Component;
+use Illuminate\Support\Facades\Date;
 
 class Order extends Component
 {
@@ -15,11 +16,17 @@ class Order extends Component
 
     public function render()
     {
-        $this->orders = Order::latest()->get();
+        $this->orders = \App\Models\Order::latest()->get();
         return view('livewire.order');
     }
 
     public function generateCode(){
         $this->code = '#' . date('Y-m-d') . rand(1, 1000);
+    }
+
+    public function store(){
+        \App\Models\Order::create([
+            'code' => $this->code
+        ]);
     }
 }
