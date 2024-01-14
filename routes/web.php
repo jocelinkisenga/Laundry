@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\RoleController;
+Use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +33,17 @@ Route::middleware("admin")->group(function () {
     Route::put("/roleUpdate",  [RoleController::class, "update"])->name("admin.role.update");
     Route::get("/role/{id}",[RoleController::class,"show"])->name("admin.role.show");
 
+
 });
 
+Route::middleware("user")->group(function() {
+
+    Route::get("/orders",[OrderController::class,"index"])->name("admin.order");
+    Route::get("/order",[OrderController::class,"create"])->name("admin.order.create");
+    Route::post("/order",[OrderController::class,"store"])->name("admin.order.store");
+    Route::put("/orderUpdate",  [OrderController::class, "update"])->name("admin.order.update");
+    Route::get("/order/{id}",[OrderController::class,"show"])->name("admin.order.show");
+});
 
 Route::middleware([
     'auth:sanctum',
