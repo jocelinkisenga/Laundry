@@ -499,7 +499,7 @@
 
     {{-- commande modal --}}
     <!-- Logout Modal-->
-    <div class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div wire:ignore.self class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -515,7 +515,7 @@
                         <div class="form-group">
                           <label for=""></label>
                           <input type="text"
-                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                            class="form-control" name="" id="" aria-describedby="helpId" value="{{ $code }}">
                           <small id="helpId" class="form-text text-muted">Help text</small>
                         </div>
                     </form>
