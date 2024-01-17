@@ -14,9 +14,9 @@ class OrderService {
         return Order::latest()->get();
     }
 
-    public function store(collection $data) {
+    public function store(?string  $code) {
        Order::create([
-            'code' => $data->code,
+            'code' => $code,
             'user_id' => Auth::user()->id
         ]);
 

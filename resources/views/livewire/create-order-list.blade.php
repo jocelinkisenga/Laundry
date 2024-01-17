@@ -1,4 +1,5 @@
 <div>
+    @dd($orderId)
     <!-- Page Heading -->
     <div class="mb-4 d-sm-flex align-items-center justify-content-between">
         <h1 class="mb-0 text-gray-800 h3">liste des commandes</h1>
@@ -34,18 +35,18 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @empty($orders)
+                        @empty($products)
                             Aucunne donnee
                         @else
-                            @foreach ($orders as $item)
+
                                 <tr>
-                                    <td>{{ $item->code }}</td>
-                                    <td>{{ $item->price }}</td>
+                                    <td></td>
+                                    <td></td>
                                     <td>Edinburgh</td>
-                                    <td>{{ $item->created_at }}</td>
+                                    <td></td>
                                     <td>2011/04/25</td>
                                 </tr>
-                            @endforeach
+
                         @endempty
                     </tbody>
                 </table>
@@ -71,14 +72,14 @@
                         <div class="form-group">
                             <label for=""></label>
                             <input type="text" class="form-control" name="" id=""
-                                aria-describedby="helpId" value="{{ $code }}">
+                                aria-describedby="helpId" value="">
                             <small id="helpId" class="form-text text-muted">code de la commande</small>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit" wire:click.prevent="store()" >Creer</button>
+                    <button class="btn btn-primary" type="submit" wire:click.prevent="" >Creer</button>
                 </div>
             </div>
         </div>

@@ -43,7 +43,7 @@
                                     <td>{{ $item->price }}</td>
                                     <td>Edinburgh</td>
                                     <td>{{ $item->created_at }}</td>
-                                    <td>2011/04/25</td>
+                                    <td><a href="{{ route("admin.product.create",["id" => $item->id]) }}" class="btn btn-primary p-1" title="ajouter des produits"> <i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
                                 </tr>
                             @endforeach
                         @endempty

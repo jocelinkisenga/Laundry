@@ -1,4 +1,4 @@
 @extends("layouts.app")
 @section("content")
-    @livewire('order')
+    @livewire('create-order-list' , ["orderId" => $orderId])
 @endsection

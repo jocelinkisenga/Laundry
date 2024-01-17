@@ -19,9 +19,9 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(?int $orderId)
+    public function create(int $orderId)
     {
-        return view("user.createOrder", compact($orderId));
+        return view("user.createOrder", compact("orderId"));
     }
 
     /**
