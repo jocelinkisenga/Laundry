@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 Use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +43,9 @@ Route::middleware("auth")->group(function() {
     Route::post("/order",[OrderController::class,"store"])->name("admin.order.store");
     Route::put("/orderUpdate",  [OrderController::class, "update"])->name("admin.order.update");
     Route::get("/order/{id}",[OrderController::class,"show"])->name("admin.order.show");
+
+
+    Route::get("/product/{id}", [ProductController::class, "create"])->name("admin.product.create");
 });
 
 Route::middleware("auth")->group(function () {

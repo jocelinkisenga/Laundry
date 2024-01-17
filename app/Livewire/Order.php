@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-
+use App\Http\Requests\StoreOrderRequest;
 use Livewire\Component;
+use App\Services\OrderService;
 use Illuminate\Support\Facades\Date;
 
 class Order extends Component
@@ -12,21 +13,26 @@ class Order extends Component
 
     public $orders;
 
-    public $shulleldArray = ['A', 'b', 'C', 'd'];
+    public $orderService;
+
+    public function __construct(){
+        $this->orderService = new OrderService();
+    }
+
 
     public function render()
     {
-        $this->orders = \App\Models\Order::latest()->get();
+        $this->orders = $this->orderService->getAll();
         return view('livewire.order');
     }
 
-    public function generateCode(){
-        $this->code = '#' . date('Y-m-d') . rand(1, 1000);
+    public function generateCode()
+    {
+        $this->code = $this->orderService->codeGenerate();
     }
 
-    public function store(){
-        \App\Models\Order::create([
-            'code' => $this->code
-        ]);
+    public function store(StoreOrderRequest $storeOrderRequest)
+    {
+        $this->orderService->store($storeOrderRequest);
     }
 }
