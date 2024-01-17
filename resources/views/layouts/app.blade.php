@@ -13,9 +13,9 @@
 
         <!-- Scripts -->
          <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-           <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset("css/sb-admin-2.min.css") }}" rel="stylesheet">
+        <link href="{{ asset("css/sb-admin-2.min.css") }}" rel="stylesheet" type="text/css">
+           <link href="{{ asset("vendor/datatables/dataTables.bootstrap4.min.css") }}" rel="stylesheet">
 
         <!-- Styles -->
         @livewireStyles
@@ -96,22 +96,22 @@
 
         @livewireScripts
             <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset("vendor/datatables/dataTables.bootstrap4.min.css") }}"></script>
+    <script src="{{ asset("vendor/datatables/dataTables.bootstrap4.min.css") }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset("vendor/jquery-easing/jquery.easing.min.js") }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{ asset("js/sb-admin-2.min.js") }}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{ asset('js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-            <script src="js/demo/datatables-demo.js"></script>
+    <script src="{{ asset("js/demo/chart-area-demo.js") }}"></script>
+    <script src="{{ asset("js/demo/chart-pie-demo.js") }}"></script>
+        <script src="{{ asset("vendor/datatables/jquery.dataTables.min.js") }}"></script>
+            <script src="{{ asset("js/demo/datatables-demo.js") }}"></script>
     </body>
 </html>
