@@ -12,12 +12,19 @@ class ProductService {
         return Product::latest()->whereOrderId($orderId)->get();
     }
 
-    public function storeProduct(string $name, string $color){
+    public function storeProduct(string $name, string $color, int $orderId){
         Product::create(
             [
                 'name' => $name,
-                'description'
-            ]
+                'description' => $color,
+                'order_id' => $orderId
+                ]
+
             );
+    }
+
+    public function deleteProduct(int $productId){
+        dd($productId);
+        Product::destroy($productId);
     }
 }

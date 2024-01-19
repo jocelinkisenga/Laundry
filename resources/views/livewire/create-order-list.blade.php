@@ -9,7 +9,7 @@
     </div>
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div wire:ignore.self class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
@@ -18,34 +18,30 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>code</th>
-                            <th>prix</th>
-                            <th>Qty produit</th>
-                            <th>date</th>
-                            <th>Actions</th>
+                            <th>N.</th>
+                            <th>nom</th>
+                            <th>couleur</th>
+                            <th>actions</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>code</th>
-                            <th>prix</th>
-                            <th>Qty produit</th>
-                            <th>date</th>
-                            <th>Actions</th>
-                        </tr>
-                    </tfoot>
+
                     <tbody>
                         @empty($products)
                             Aucunne donnee
                         @else
 
+                            @foreach ($products as $key => $product)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Edinburgh</td>
-                                    <td></td>
-                                    <td>2011/04/25</td>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->description }}</td>
+
+                                    <td>
+                                        <a href=""></a>
+                                        <a class="btn btn-danger p1 text-white" wire:click="delete({{ $product->id }})">X</a>
+                                    </td>
                                 </tr>
+                            @endforeach
 
                         @endempty
                     </tbody>
@@ -71,21 +67,21 @@
                     <form method="post" action="">
                         <div class="form-group">
                             <label for=""></label>
-                            <input type="text" class="form-control" name="" id=""
+                            <input type="text" wire:model="name" class="form-control" name="" id=""
                                 aria-describedby="helpId" value="">
                             <small id="helpId" class="form-text text-muted">nom de l'article</small>
                         </div>
                         <div class="form-group">
                             <label for=""></label>
-                            <input type="text" class="form-control" name="" id=""
+                            <input type="text" wire:model="description" class="form-control" name="" id=""
                                 aria-describedby="helpId" value="">
                             <small id="helpId" class="form-text text-muted">couleur</small>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit" wire:click.prevent="" >Creer</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <button class="btn btn-primary" type="submit" wire:click.prevent="store()" >Creer</button>
                 </div>
             </div>
         </div>
