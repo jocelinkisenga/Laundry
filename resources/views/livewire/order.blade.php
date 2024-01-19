@@ -2,10 +2,11 @@
     <!-- Page Heading -->
     <div class="mb-4 d-sm-flex align-items-center justify-content-between">
         <h1 class="mb-0 text-gray-800 h3">liste des commandes</h1>
-        <a href="#" wire:click="generateCode()" data-toggle="modal" data-target="#order"
+        <a  wire:click="generateCode()" data-toggle="modal" data-target="#order"
             class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
                 class="fas fa-download fa-sm text-white-50"></i> Creer une commande</a>
     </div>
+
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -43,7 +44,7 @@
                                     <td>{{ $item->price }}</td>
                                     <td>Edinburgh</td>
                                     <td>{{ $item->created_at }}</td>
-                                    <td><a href="{{ route("admin.product.create",["id" => $item->id]) }}" class="btn btn-primary p-1" title="ajouter des produits"> <i class="fa fa-plus-circle" aria-hidden="true"></i></a></td>
+                                    <td><a href="{{ route("admin.product.create",["id" => $item->id]) }}" class="btn btn-primary p-1" title="ajouter des produits"> <i class="fa fa-plus" aria-hidden="true"></i></a></td>
                                 </tr>
                             @endforeach
                         @endempty

@@ -5,13 +5,13 @@
         <h1 class="mb-0 text-gray-800 h3">liste des commandes</h1>
         <a href="#"  data-toggle="modal" data-target="#order"
             class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
-                class="fas fa-download fa-sm text-white-50"></i> Creer une commande</a>
+                class="fas fa-plus fa-sm text-white-50"></i> ajouter un article</a>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -73,7 +73,13 @@
                             <label for=""></label>
                             <input type="text" class="form-control" name="" id=""
                                 aria-describedby="helpId" value="">
-                            <small id="helpId" class="form-text text-muted">code de la commande</small>
+                            <small id="helpId" class="form-text text-muted">nom de l'article</small>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                            <input type="text" class="form-control" name="" id=""
+                                aria-describedby="helpId" value="">
+                            <small id="helpId" class="form-text text-muted">couleur</small>
                         </div>
                     </form>
                 </div>
