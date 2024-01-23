@@ -20,5 +20,7 @@ class Role extends Component
         ModelsRole::create([
             'name' => $this->name
         ]);
+
+        flash()->addSuccess('role ajoute avec success');
     }
 }
