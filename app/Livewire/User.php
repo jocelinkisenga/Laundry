@@ -6,6 +6,7 @@ use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use App\Models\Role;
+use App\Models\RoleUser;
 
 class User extends Component
 {
@@ -13,7 +14,7 @@ class User extends Component
     public string $name;
     public string $email;
     private bool $permisStatus = false;
-    protected $user;
+    public $user;
     public string $phone;
     public int $role_id;
     public $roles;
@@ -21,7 +22,7 @@ class User extends Component
     public function render()
     {
         $this->roles = Role::all();
-        $this->users = ModelsUser::lates()->get();
+        $this->users = ModelsUser::latest()->get();
         return view('livewire.user');
     }
 
@@ -34,11 +35,16 @@ class User extends Component
             "phone" => $this->phone
         ]);
 
-        $this->userRole($user->id, $this->role_id);
+        $this->userRole($this->user->id, $this->role_id);
+
+           flash()->addSuccess('utilisateur ajoute avec success');
     }
 
     private function userRole(int $userId, int $roleId){
-        
+        RoleUser::create([
+          "user_id" => $userId,
+          "role_id" => $roleId
+        ]);
     }
 
 }
