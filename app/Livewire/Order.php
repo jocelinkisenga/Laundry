@@ -7,9 +7,11 @@ use Livewire\Component;
 use App\Services\OrderService;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Facades\Date;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Order extends Component
 {
+    use LivewireAlert;
     public string  $code;
 
     public $orders;
@@ -32,7 +34,12 @@ class Order extends Component
 
     public function store(OrderService $orderService)
     {
+         if(!empty($orderService->store($this->code))) {
 
-        $orderService->store($this->code);
+                     flash()->addSuccess('commande creee avec succes');
+         }
+
+
+        
     }
 }

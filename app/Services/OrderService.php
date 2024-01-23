@@ -15,7 +15,7 @@ class OrderService {
     }
 
     public function store(?string  $code) {
-       Order::create([
+      return Order::create([
             'code' => $code,
             'user_id' => Auth::user()->id
         ]);
