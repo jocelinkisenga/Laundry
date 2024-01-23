@@ -38,7 +38,8 @@
 
                                     <td>
                                         <a href=""></a>
-                                        <a class="btn btn-danger p1 text-white" wire:click="delete({{ $product->id }})">X</a>
+
+                                        <button type="submit" wire:click ="delete({{ $product->id }})" class="btn btn-danger p1 text-white" >X</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -57,7 +58,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un article?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

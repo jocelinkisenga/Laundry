@@ -11,7 +11,7 @@ class OrderService {
 
     protected string $code;
     public function getAll() : Collection {
-        return Order::latest()->get();
+        return Order::latest()->withCount("products")->get();
     }
 
     public function store(?string  $code) {

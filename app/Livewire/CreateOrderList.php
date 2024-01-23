@@ -19,13 +19,14 @@ class CreateOrderList extends Component
         return view('livewire.create-order-list');
     }
 
-    public function store(ProductService $productService){
+    public function store(ProductService $productService)
+    {
         $productService->storeProduct($this->name, $this->description, $this->orderId);
     }
 
-    public function delete(ProductService $productService, int $productId){
+    public function delete(int $productId)
+    {
         dd($productId);
-            $productService->deleteProduct($productId);
+        // $productService->deleteProduct($productId);
     }
-
 }

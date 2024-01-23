@@ -20,4 +20,8 @@ class Order extends Model
         'status' => 'boolean',
     ];
 
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
 }
