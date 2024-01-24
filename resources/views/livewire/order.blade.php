@@ -2,16 +2,16 @@
     <!-- Page Heading -->
     <div class="mb-4 d-sm-flex align-items-center justify-content-between">
         <h1 class="mb-0 text-gray-800 h3">liste des commandes</h1>
-        <a  wire:click="generateCode()" data-toggle="modal" data-target="#order"
+        <a   data-toggle="modal" data-target="#order"
             class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
                 class="fas fa-download fa-sm text-white-50"></i> Creer une commande</a>
     </div>
 
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div wire:ignore.self  class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -61,7 +61,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une commande?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -71,9 +71,21 @@
                     <form method="post" action="">
                         <div class="form-group">
                             <label for=""></label>
-                            <input type="text" class="form-control" name="" id=""
-                                aria-describedby="helpId" value="{{ $code }}">
-                            <small id="helpId" class="form-text text-muted">code de la commande</small>
+                            <input type="text" class="form-control" wire:model="client_name" name="" id=""
+                                aria-describedby="helpId" >
+                            <small id="helpId" class="form-text text-muted">nom du client</small>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                            <input type="text" class="form-control" wire:model="room_name" name="" id=""
+                                aria-describedby="helpId" >
+                            <small id="helpId" class="form-text text-muted">chambre du client</small>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
+                            <input type="text" class="form-control" wire:model="phone" name="" id=""
+                                aria-describedby="helpId" >
+                            <small id="helpId" class="form-text text-muted">Telephone du client</small>
                         </div>
                     </form>
                 </div>

@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderService {
 
-    protected string $code;
+  
     public function getAll() : Collection {
         return Order::latest()->withCount("products")->get();
     }
 
-    public function store(?string  $code) {
+    public function store( ?string $clientname, ?string $roomName, string $phone) {
       return Order::create([
-            'code' => $code,
-            'user_id' => Auth::user()->id
+            'code' => $this->codeGenerate(),
+            'user_id' => Auth::user()->id,
+            'client_name' => $clientname,
+            'room_name' => $roomName,
+            'phone' => $phone
         ]);
 
     }
@@ -28,8 +31,8 @@ class OrderService {
     }
 
 
-    public function codeGenerate(){
+    protected function codeGenerate(){
 
-        return $this->code = '#' . date('Y-m-d') . rand(1, 1000);
+        return '#' . date('Y-m-d') . rand(1, 1000);
     }
 }

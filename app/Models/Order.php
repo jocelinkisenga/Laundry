@@ -9,16 +9,21 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'code',
-        'user_id',
-        'price',
-        'status'
-    ];
+protected $fillable = [
+    'code',
+    'user_id',
+    'price',
+    'status',
+    'room_name',
+    'client_name',
+    'phone'
+];
 
-    protected $casts = [
-        'status' => 'boolean',
-    ];
+protected $casts = [
+    'status' => 'boolean',
+];
+
+
 
     public function products(){
         return $this->hasMany(Product::class);

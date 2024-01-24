@@ -7,33 +7,28 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use App\Models\Role;
 use App\Models\RoleUser;
+use App\Services\UserService;
 
 class User extends Component
 {
     public $users;
     public string $name;
     public string $email;
-    private bool $permisStatus = false;
+    
     public $user;
     public string $phone;
     public int $role_id;
     public $roles;
 
-    public function render()
+    public function render(UserService $userService)
     {
         $this->roles = Role::all();
-        $this->users = ModelsUser::latest()->get();
+        $this->users = $userService->getAll();
         return view('livewire.user');
     }
 
-    public function store(){
-        $this->user = ModelsUser::create([
-            "name" => $this->name,
-            "email" => $this->email,
-            "password" => Hash::make("laundry service"),
-            "permis_status" => $this->permisStatus,
-            "phone" => $this->phone
-        ]);
+    public function store(UserService $userService){
+        $this->user = $userService->store();
 
         $this->userRole($this->user->id, $this->role_id);
 

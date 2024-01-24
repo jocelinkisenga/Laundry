@@ -12,14 +12,13 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Order extends Component
 {
     use LivewireAlert;
-    public string  $code;
 
+    public ?string $client_name;
+    public ?string $phone;
+    public ?string $room_name;
     public $orders;
 
     public $orderService;
-
-
-
 
     public function render(OrderService $orderService)
     {
@@ -27,19 +26,17 @@ class Order extends Component
         return view('livewire.order');
     }
 
-    public function generateCode(OrderService $orderService)
-    {
-        $this->code = $orderService->codeGenerate();
-    }
+
 
     public function store(OrderService $orderService)
     {
-         if(!empty($orderService->store($this->code))) {
 
-                     flash()->addSuccess('commande creee avec succes');
-         }
+        $orderService->store( $this->client_name, $this->room_name, $this->phone);
+
+         flash()->addSuccess('commande creee avec succes');
 
 
-        
+
+
     }
 }
