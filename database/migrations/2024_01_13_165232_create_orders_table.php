@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable();
             $table->bigInteger('price')->nullable();
             $table->boolean('status')->default(false);
+            $table->string("room_name")->nullable();
+            $table->string("client_name")->nullable();
+            $table->string("phone")->nullable();
             $table->timestamps();
 
         });
