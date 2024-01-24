@@ -54,6 +54,12 @@ Migrez vos tables avec la commande
 php artisan migrate
 
 ```
+### Demarer serveur
+
+Demarez le serveur avec la commande :
+```
+php artisan serve
+```
 
 ### connexion 
 
