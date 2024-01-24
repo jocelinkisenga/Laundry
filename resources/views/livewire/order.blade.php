@@ -2,14 +2,13 @@
     <!-- Page Heading -->
     <div class="mb-4 d-sm-flex align-items-center justify-content-between">
         <h1 class="mb-0 text-gray-800 h3">liste des commandes</h1>
-        <a   data-toggle="modal" data-target="#order"
-            class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
+        <a data-toggle="modal" data-target="#order" class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
                 class="fas fa-download fa-sm text-white-50"></i> Creer une commande</a>
     </div>
 
 
     <!-- DataTales Example -->
-    <div wire:ignore.self  class="card shadow mb-4">
+    <div wire:ignore.self class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
@@ -18,21 +17,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>code</th>
+                            <th>status</th>
+                            <th>client</th>
+                            <th>chambre</th>
                             <th>prix</th>
                             <th>Qty produit</th>
-                            <th>date</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>code</th>
-                            <th>prix</th>
-                            <th>Qty produit</th>
-                            <th>date</th>
-                            <th>Actions</th>
-                        </tr>
                     </tfoot>
                     <tbody>
                         @empty($orders)
@@ -40,11 +32,37 @@
                         @else
                             @foreach ($orders as $item)
                                 <tr>
-                                    <td>{{ $item->code }}</td>
+                                    @if ($item->status == false)
+                                        <td>
+                                            <span class="text-danger p-1"><i class="fa fa-circle"></i></span>
+                                        </td>
+                                    @else
+                                        <td>
+                                            <span class="text-success p-1"><i class="fa fa-circle"></i></span>
+                                        </td>
+                                    @endif
+                                    <td>{{ $item->client_name }}</td>
+                                    <td>{{ $item->room_name }}</td>
                                     <td>{{ $item->price }}</td>
+
                                     <td>{{ $item->products_count }}</td>
-                                    <td>{{ $item->created_at }}</td>
-                                    <td><a href="{{ route("admin.product.create",["id" => $item->id]) }}" class="btn btn-primary p-1" title="ajouter des produits"> <i class="fa fa-plus" aria-hidden="true"></i></a></td>
+                                    <td>
+                                        <a href="{{ route('admin.product.create', ['id' => $item->id]) }}"
+                                            class="btn btn-primary btn-sm " title="ajouter des produits"> <i
+                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                        <a href="{{ route('admin.product.create', ['id' => $item->id]) }}"
+                                            class="btn btn-success btn-sm " title="ajouter des produits"> <i
+                                                class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                        <a href="{{ route('admin.product.create', ['id' => $item->id]) }}"
+                                            class="btn btn-warning btn-sm " title="ajouter des produits"> <i
+                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                        <a href="{{ route('admin.product.create', ['id' => $item->id]) }}"
+                                            class="btn btn-danger btn-sm " title="ajouter des produits"> <i
+                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                        <a href="{{ route('admin.product.create', ['id' => $item->id]) }}"
+                                            class="btn btn-primary btn-sm " title="ajouter des produits"> <i
+                                                class="fa fa-eye" aria-hidden="true"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                         @endempty
@@ -71,27 +89,27 @@
                     <form method="post" action="">
                         <div class="form-group">
                             <label for=""></label>
-                            <input type="text" class="form-control" wire:model="client_name" name="" id=""
-                                aria-describedby="helpId" >
+                            <input type="text" class="form-control" wire:model="client_name" name=""
+                                id="" aria-describedby="helpId">
                             <small id="helpId" class="form-text text-muted">nom du client</small>
                         </div>
                         <div class="form-group">
                             <label for=""></label>
-                            <input type="text" class="form-control" wire:model="room_name" name="" id=""
-                                aria-describedby="helpId" >
+                            <input type="text" class="form-control" wire:model="room_name" name=""
+                                id="" aria-describedby="helpId">
                             <small id="helpId" class="form-text text-muted">chambre du client</small>
                         </div>
                         <div class="form-group">
                             <label for=""></label>
                             <input type="text" class="form-control" wire:model="phone" name="" id=""
-                                aria-describedby="helpId" >
+                                aria-describedby="helpId">
                             <small id="helpId" class="form-text text-muted">Telephone du client</small>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit" wire:click.prevent="store()" >Creer</button>
+                    <button class="btn btn-primary" type="submit" wire:click.prevent="store()">Creer</button>
                 </div>
             </div>
         </div>

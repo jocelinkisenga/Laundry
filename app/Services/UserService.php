@@ -22,7 +22,7 @@ class UserService
 
     public function store(?string $name, ?string $email, string $phone)
     {
-     return   User::create([
+        return   User::create([
             "name" => $name,
             "email" => $email,
             "password" => Hash::make("laundry service"),
@@ -31,15 +31,8 @@ class UserService
         ]);
     }
 
-    public function show(?int $OrderId)
+    public function show(?int $userId)
     {
-        return Order::whereId($OrderId)->first();
-    }
-
-
-    protected function codeGenerate()
-    {
-
-        return '#' . date('Y-m-d') . rand(1, 1000);
+        return User::whereId($userId)->first();
     }
 }
