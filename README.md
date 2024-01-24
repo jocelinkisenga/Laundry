@@ -11,7 +11,7 @@
 ## installation
 
 ```
-git clone 
+git clone https://github.com/jocelinkisenga/Laundry.git
 
 ```
 après acceder au dossier du projet et faites :
