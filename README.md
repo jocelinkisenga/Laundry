@@ -48,4 +48,17 @@ DB_PASSWORD=
 ```
 ### Migrer les tables
 
-Migrez vos 
+Migrez vos tables avec la commande
+
+```
+php artisan migrate
+
+```
+
+### connexion 
+
+Connectez-vous en tant qu'administrateur avec les donnees:
+
+* email : kisenga@gmail.com
+* password : jocelin kisenga
+ 
