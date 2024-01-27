@@ -20,10 +20,14 @@ class UserController extends Controller
 
     public function givePermission(int $userId){
         $this->userService->setPermission($userId);
+
+        return redirect()->back();
     }
 
     public function removePermission(int $userId)
     {
         $this->userService->unsetPermission($userId);
+
+        return redirect()->back();
     }
 }

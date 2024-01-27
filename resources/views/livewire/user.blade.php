@@ -20,7 +20,8 @@
                         <tr>
                             <th>N.</th>
                             <th>nom</th>
-                            <th>couleur</th>
+                            <th>email</th>
+                            <th>telephone</th>
                             <th>actions</th>
                         </tr>
                     </thead>
@@ -37,7 +38,8 @@
                                         <td>{{ $key + 1 }}</td>
                                     @endif
                                     <td class=" bg-yellow">{{ $user->name }}</td>
-                                    <td></td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
 
                                     <td>
                                         <a href=""></a>
