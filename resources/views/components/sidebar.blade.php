@@ -26,7 +26,8 @@
                     <span>commandes</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            @if (Auth::user()->role_user == "admin")
+                            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.users') }}">
                     <i class="fas fa-fw fa-table"></i>
@@ -42,6 +43,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Rapport</span></a>
             </li>
+            @endif
 
 
 
