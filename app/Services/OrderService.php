@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderService {
 
-  
+
     public function getAll() : Collection {
         return Order::latest()->withCount("products")->get();
+    }
+
+    public function ordersByUser(): Collection
+    {
+        return Order::whereUserId(Auth::user()->id)->latest()->withCount("products")->get();
     }
 
     public function store( ?string $clientname, ?string $roomName, string $phone) {

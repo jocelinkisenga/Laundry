@@ -65,6 +65,6 @@ php artisan serve
 
 Connectez-vous en tant qu'administrateur avec les donnees:
 
-* email : kisenga@gmail.com
+* email : kisenga@gmail.com </br>
 * password : jocelin kisenga
  

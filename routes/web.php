@@ -33,6 +33,8 @@ Route::middleware("auth")->group(function () {
     Route::put("/roleUpdate",  [RoleController::class, "update"])->name("admin.role.update");
     Route::get("/role/{id}",[RoleController::class,"show"])->name("admin.role.show");
 
+    Route::get("/setPermissiom/{id}", [UserController::class, "givePermission"])->name("user.setPermission");
+    Route::get("/unsetPermissiom/{id}", [UserController::class, "removePermission"])->name("user.unsetPermission");
 
 });
 
