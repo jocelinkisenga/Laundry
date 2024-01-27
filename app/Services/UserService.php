@@ -20,14 +20,15 @@ class UserService
         return User::latest()->get();
     }
 
-    public function store(?string $name, ?string $email, string $phone)
+    public function store(?string $name, ?string $email, string $phone, int $roleId)
     {
         return   User::create([
             "name" => $name,
             "email" => $email,
             "password" => Hash::make("laundry service"),
             "permis_status" => $this->permisStatus,
-            "phone" => $phone
+            "phone" => $phone,
+            "role_id" => $roleId
         ]);
     }
 

@@ -19,6 +19,7 @@ class Order extends Component
     public ?string $room_name;
     public $orders;
 
+    public $orderId;
     public $orderService;
 
     public function render(OrderService $orderService)
@@ -40,5 +41,10 @@ class Order extends Component
 
 
 
+    }
+
+    public function openConfirmModal(int $orderId){
+        dd($orderId);
+        $this->orderId = $orderId;
     }
 }

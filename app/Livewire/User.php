@@ -30,7 +30,7 @@ class User extends Component
 
     public function store(UserService $userService, RoleService $roleService){
 
-        $this->user = $userService->store($this->name, $this->email, $this->phone);
+        $this->user = $userService->store($this->name, $this->email, $this->phone, $this->role_id);
 
         $roleService->userRole($this->user->id, $this->role_id);
 

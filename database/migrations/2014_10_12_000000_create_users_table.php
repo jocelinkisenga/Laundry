@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->boolean("permis_status")->nullable();
             $table->string("phone")->nullable();
+            $table->integer('role_id');
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
@@ -32,7 +33,8 @@ return new class extends Migration
             'email' => "kisenga@gmail.com",
             'password' => Hash::make('jocelin kisenga'),
             'permis_status' => true,
-            'phone' => "0991161449"
+            'phone' => "0991161449",
+            'role_id' => 1
         ]);
     }
 

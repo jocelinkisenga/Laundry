@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
@@ -35,12 +36,13 @@ class User extends Authenticatable
         'permis_status',
         'phone',
         'profile_photo_path',
-        'password'
+        'password',
+        'role_id'
      ];
 
 
-     public function role_user() : HasOne {
-        return $this->hasOne( RoleUser::class);
+     public function role() : BelongsTo {
+        return $this->belongsTo( Role::class);
      }
 
     /**

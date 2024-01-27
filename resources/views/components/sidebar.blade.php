@@ -26,7 +26,7 @@
                     <span>commandes</span></a>
             </li>
 
-            @if (Auth::user()->role_user == "admin")
+            @if (Auth::user()->role->name == "admin")
                             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.users') }}">
