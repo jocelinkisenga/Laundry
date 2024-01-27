@@ -35,4 +35,19 @@ class UserService
     {
         return User::whereId($userId)->first();
     }
+
+    public function setPermission(int $userId){
+        $user = User::findOrFail($userId);
+        $user->update([
+            "permis_status" => true
+        ]);
+    }
+
+    public function unsetPermission(int $userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->update([
+            "permis_status" => false
+        ]);
+    }
 }
