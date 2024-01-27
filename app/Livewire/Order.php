@@ -6,6 +6,7 @@ use App\Http\Requests\StoreOrderRequest;
 use Livewire\Component;
 use App\Services\OrderService;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -22,7 +23,8 @@ class Order extends Component
 
     public function render(OrderService $orderService)
     {
-        $this->orders = $orderService->getAll();
+
+        $this->orders = (Auth::user()->role_user == "admin") ? $orderService->getAll() : $orderService->ordersByUser() ;
         return view('livewire.order');
     }
 
