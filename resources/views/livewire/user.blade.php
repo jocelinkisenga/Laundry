@@ -31,15 +31,19 @@
                         @else
                             @foreach ($users as $key => $user)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ $user->name }}</td>
+                                    @if ($user->permis_status == true)
+                                        <td style="background-color:aquamarine">{{ $key + 1 }}</td>
+                                    @else
+                                        <td>{{ $key + 1 }}</td>
+                                    @endif
+                                    <td class=" bg-yellow">{{ $user->name }}</td>
                                     <td></td>
 
                                     <td>
                                         <a href=""></a>
+                                        <a href="{{ route("user.setPermission", ["id" => $user->id])}}" class="btn btn-sm  btn-primary text-white p-1 rounded" title="permettre"><i class="fa fa-plus-circle"></i></a>
 
-                                        <button type="submit" wire:click =""
-                                            class="btn btn-danger p1 text-white">X</button>
+                                         <a href="{{ route("user.unsetPermission", ["id" => $user->id])}}" class="btn btn-sm  btn-danger text-white p-1 " title="permettre"><i class="fa fa-close"></i>x</a>
                                     </td>
                                 </tr>
                             @endforeach
