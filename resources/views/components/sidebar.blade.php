@@ -39,6 +39,11 @@
                     <span>Roles</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route("customer.create") }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>clients</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Rapport</span></a>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
@@ -36,6 +38,8 @@ Route::middleware("auth")->group(function () {
     Route::get("/setPermissiom/{id}", [UserController::class, "givePermission"])->name("user.setPermission");
     Route::get("/unsetPermissiom/{id}", [UserController::class, "removePermission"])->name("user.unsetPermission");
 
+    Route::get("/customers", [CustomerController::class, "create"])->name("customer.create");
+
 });
 
 Route::middleware("auth")->group(function() {
@@ -51,9 +55,7 @@ Route::middleware("auth")->group(function() {
 });
 
 Route::middleware("auth")->group(function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, "index"])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';

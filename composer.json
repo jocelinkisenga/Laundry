@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
+        "maatwebsite/excel": "^3.1",
         "php-flasher/flasher-laravel": "^1.15",
         "yoeunes/toastr": "^2.3"
     },

@@ -15,11 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("code");
             $table->foreignId('user_id')->nullable();
-            $table->bigInteger('price')->nullable();
+            $table->foreignId('custome_id')->constrained("customers");
             $table->boolean('status')->default(false);
-            $table->string("room_name")->nullable();
-            $table->string("client_name")->nullable();
-            $table->string("phone")->nullable();
             $table->timestamps();
 
         });
