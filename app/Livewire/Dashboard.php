@@ -10,4 +10,8 @@ class Dashboard extends Component
     {
         return view('livewire.dashboard');
     }
+
+    public function order(int $customerId){
+        dd($customerId);
+    }
 }

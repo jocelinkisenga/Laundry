@@ -1,6 +1,7 @@
 <div>
-
-    <!-- Page Heading -->
+    @php
+        use Darryldecode\Cart\Cart;
+    @endphp
     <div class="mb-4 d-sm-flex align-items-center justify-content-between">
         <h1 class="mb-0 text-gray-800 h3">Dashboard</h1>
         <a href="#" class="shadow-sm d-none d-sm-inline-block btn btn-sm btn-primary"><i
@@ -92,7 +93,6 @@
             </div>
         </div>
     </div>
-
     <!-- Content Row -->
 
     <div class="row">
@@ -103,8 +103,14 @@
                 <!-- Card Header - Dropdown -->
                 <div class="flex-row py-3 card-header d-flex align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                    @if(session()->get("customer_id"))
+                    <div>
+                        <a href="" class="text-success m-2"><i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a href="" class="text-danger"><i class="fas fa-file-pdf"></i></a>
+                    </div>
+                    @endif
                     <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" >
+                        <a  href="#" role="button" data-toggle="modal" data-target="#product" >
                             <button class="btn btn-primary text-white"><i class="fa fa-plus" aria-hidden="true"></i> ajouter un produit</button>
                         </a>
 
@@ -121,5 +127,5 @@
 
 
     </div>
-
+@livewire('create-order-list')
 </div>

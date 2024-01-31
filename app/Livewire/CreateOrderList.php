@@ -15,13 +15,13 @@ class CreateOrderList extends Component
 
     public function render(ProductService $productService)
     {
-        $this->products = $productService->getAll($this->orderId);
+
         return view('livewire.create-order-list');
     }
 
     public function store(ProductService $productService)
     {
-        $productService->storeProduct($this->name, $this->description, $this->orderId);
+        $productService->storeProduct($this->name, $this->description);
            flash()->addSuccess('Article ajoute avec succes');
     }
 

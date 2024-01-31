@@ -37,7 +37,8 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include("components.navbar")
+             @include("components.navbar")
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -96,6 +97,9 @@
             </div>
         </div>
     </div>
+
+    {{-- customer --}}
+    @livewire('search')
 
         @stack('modals')
 

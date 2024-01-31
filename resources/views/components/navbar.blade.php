@@ -9,10 +9,9 @@
                     <form
                         class="my-2 mr-auto d-none d-sm-inline-block form-inline ml-md-3 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="border-0 form-control bg-light small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+
+                            <div class="input-group-append mr-4">
+                                <button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#customer">Rerchechez chambre
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>

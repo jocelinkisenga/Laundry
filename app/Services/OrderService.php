@@ -20,13 +20,7 @@ class OrderService {
     }
 
     public function store( ?string $clientname, ?string $roomName, string $phone) {
-      return Order::create([
-            'code' => $this->codeGenerate(),
-            'user_id' => Auth::user()->id,
-            'client_name' => $clientname,
-            'room_name' => $roomName,
-            'phone' => $phone
-        ]);
+
 
     }
 

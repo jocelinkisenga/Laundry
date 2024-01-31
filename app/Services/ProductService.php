@@ -8,11 +8,11 @@ use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
 
 class ProductService {
-    public function getAll(int $orderId): Collection {
+    public function getAll(): Collection {
         return Product::latest()->whereOrderId($orderId)->get();
     }
 
-    public function storeProduct(string $name, string $color, int $orderId){
+    public function storeProduct(string $name, string $color){
         Product::create(
             [
                 'name' => $name,
