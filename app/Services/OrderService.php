@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Services;
@@ -7,10 +8,12 @@ use App\Models\Order;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 
-class OrderService {
+class OrderService
+{
 
 
-    public function getAll() : Collection {
+    public function getAll(): Collection
+    {
         return Order::latest()->withCount("products")->get();
     }
 
@@ -19,18 +22,23 @@ class OrderService {
         return Order::whereUserId(Auth::user()->id)->latest()->withCount("products")->get();
     }
 
-    public function store( ?string $clientname, ?string $roomName, string $phone) {
-
-
+    public function store()
+    {
+        return     Order::create([
+            "code" => $this->codeGenerate(),
+            "user_id" => Auth::user()->id,
+            "customer_id" => session()->get("customer_id")
+        ]);
     }
 
-    public function show(?int $OrderId){
+    public function show(?int $OrderId)
+    {
         return Order::whereId($OrderId)->first();
-
     }
 
 
-    protected function codeGenerate(){
+    protected function codeGenerate()
+    {
 
         return '#' . date('Y-m-d') . rand(1, 1000);
     }

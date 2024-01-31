@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("code");
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('custome_id')->constrained("customers");
+            $table->foreignId('customer_id')->constrained("customers");
             $table->boolean('status')->default(false);
             $table->timestamps();
 

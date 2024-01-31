@@ -21,6 +21,7 @@ class CreateOrderList extends Component
 
     public function store(ProductService $productService)
     {
+        
         $productService->storeProduct($this->name, $this->description);
            flash()->addSuccess('Article ajoute avec succes');
     }

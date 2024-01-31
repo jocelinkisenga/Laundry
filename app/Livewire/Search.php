@@ -19,7 +19,7 @@ class Search extends Component
     public function searchRoom() {
         if (!empty($this->roomSearch)) {
 
-            $this->records = Customer::paginate(5)->get();
+            $this->records = Customer::limit(10)->get();
 
         }
     }

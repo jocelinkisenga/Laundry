@@ -118,9 +118,40 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>N.</th>
+                            <th>nom</th>
+                            <th>couleur</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @empty($productsDashboard)
+                            Aucunne donnee
+                        @else
+
+                            @foreach ($productsDashboard["products"] as $key => $product)
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td></td>
+
+                                    <td>-n
+                                        <a href=""></a>
+
+                                        <butto  type="submit" wire:click ="" class="btn btn-danger p1 text-white" >X</butto>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        @endempty
+                    </tbody>
+                </table>
+            </div>
                 </div>
             </div>
         </div>
